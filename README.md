@@ -6,21 +6,7 @@
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Supported Constructs](#supported-constructs)
-  - [Program Structure](#program-structure)
-  - [Variable Declarations](#variable-declarations)
-  - [Print Statements](#print-statements)
-  - [Assignments](#assignments)
-  - [Control Flow](#control-flow)
-    - [If-Else Statements](#if-else-statements)
-    - [While Loops](#while-loops)
-    - [Do-While Loops](#do-while-loops)
-  - [Functions](#functions)
-  - [Function Calls](#function-calls)
 - [Execution - Virtual Machine](#execution---virtual-machine)
-  - [Memory Map](#memory-map)
-  - [Memory Types and Data Types](#memory-types-and-data-types)
-  - [Quadruple Management](#quadruple-management)
-  - [Virtual Machine](#virtual-machine)
 
 ## Introduction
 This repository contains the source code for a compiler designed for a C++ subset language. This project was developed as part of the Advanced Applications course. The implementation includes a Lexer, Parser, and a simulation of a Virtual Machine, all built using Python and the PLY (Python Lex-Yacc) library.
@@ -51,6 +37,9 @@ pip install ply
 The textEditor.txt file contains code that that will be compiled.
 
 Run the main.py file to compile and execute the subset language code.  
+
+![LittleDuck](https://github.com/sergioecv/LittleDuckCompiler/assets/69764581/7dba8dcd-1bfb-492e-a1f3-0e95a9764b8b)
+
 
 ## Supported Constructs
 
