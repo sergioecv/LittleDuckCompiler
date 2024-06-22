@@ -1,5 +1,27 @@
 # Little Duck Compiler | C++ Subset Language Compiler
 
+## Table of Contents
+- [Introduction](#introduction)
+- [Repository Structure](#repository-structure)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Supported Constructs](#supported-constructs)
+  - [Program Structure](#program-structure)
+  - [Variable Declarations](#variable-declarations)
+  - [Print Statements](#print-statements)
+  - [Assignments](#assignments)
+  - [Control Flow](#control-flow)
+    - [If-Else Statements](#if-else-statements)
+    - [While Loops](#while-loops)
+    - [Do-While Loops](#do-while-loops)
+  - [Functions](#functions)
+  - [Function Calls](#function-calls)
+- [Execution - Virtual Machine](#execution---virtual-machine)
+  - [Memory Map](#memory-map)
+  - [Memory Types and Data Types](#memory-types-and-data-types)
+  - [Quadruple Management](#quadruple-management)
+  - [Virtual Machine](#virtual-machine)
+
 ## Introduction
 This repository contains the source code for a compiler designed for a C++ subset language. This project was developed as part of the Advanced Applications course. The implementation includes a Lexer, Parser, and a simulation of a Virtual Machine, all built using Python and the PLY (Python Lex-Yacc) library.
 
@@ -29,9 +51,6 @@ pip install ply
 The textEditor.txt file contains code that that will be compiled.
 
 Run the main.py file to compile and execute the subset language code.  
-
-
-
 
 ## Supported Constructs
 
@@ -107,3 +126,41 @@ void myFunction(a: int) [
 ```cpp
 myFunction(10);
 ```
+
+## Execution - Virtual Machine
+
+### Memory Map
+The memory map is simulated by a `Memory` class that encapsulates all behaviors and actions for memory manipulation. This class contains the basic actions and data structures for memory, allowing the creation of Global Memory, Temporal Memory, and Constant Memory classes.
+
+### Memory Types and Data Types
+Memory is divided into different types based on scope and purpose, each with a base address range:
+
+- **Global Memory**
+  - Int: 11000
+  - Float: 12000
+  - Bool: 13000
+- **Temporal Memory**
+  - Int: 21000
+  - Float: 22000
+  - Bool: 23000
+- **Constant Memory**
+  - Int: 31000
+  - Float: 32000
+  - String: 33000
+
+The memory class also tracks the count of variables associated with memory based on their data type. When a global variable is declared in the compiler, the corresponding memory function is called to update the memory size and return the memory address for the variable.
+
+### Quadruple Management
+Quadruples include memory addresses of the involved variables and the corresponding operator code. Upon generating all quadruples, the compiler writes to `obj.txt`:
+
+- Function Directory
+- Quadruples
+- Global and Temporal Memory Sizes
+- Constant List
+
+### Virtual Machine
+The virtual machine starts by reading the contents of `obj.txt`, assigns the quadruples and constant lists, and sets up the memory map. The CPU simulation in the virtual machine executes instructions by accessing and updating memory values.
+
+The virtual machine executes instructions while accessing memory values and assigning new values. It retrieves operand values, performs operations, and updates memory with results, maintaining the instruction pointer to execute the next operation.
+
+The memory values are accessed and updated through functions that determine the memory type and index based on the address provided. This process ensures correct value retrieval and storage, handling uninitialized variables with appropriate error messages.
