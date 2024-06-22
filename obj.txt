@@ -1,0 +1,17 @@
+('global', 'void'): 
+    a: int, 11000
+# END DIRFUNC
+[8, 31000, None, 11000]
+[2, 11000, 31001, 23000]
+[11, 23000, None, 8]
+[4, 11000, 31002, 21000]
+[8, 21000, None, 11000]
+[9, None, None, 11000]
+[10, None, None, 2]
+# END QUADRUPLES
+(1, 0, 0)
+# END GLOBAL MEMORY SIZE
+(1, 0, 1)
+# END TEMPORAL MEMORY SIZE
+[0, 10, 1]
+# END INT CONSTANTS
